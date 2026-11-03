@@ -1,0 +1,106 @@
+
+name: Souk El Hayawan - CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+
+  # ============================
+  # FRONTEND - ANGULAR
+  # ============================
+  frontend:
+    name: Frontend - Angular
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: frontendsouk
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.19.0'
+          cache: npm
+          cache-dependency-path: frontendsouk/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Angular tests
+        run: npm test -- --watch=false
+
+      - name: Build Angular application
+        run: npm run build
+
+      - name: Upload frontend artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: souk-frontend
+          path: frontendsouk/dist/frontendsouk/
+          if-no-files-found: error
+
+  # ============================
+  # BACKEND - SPRING BOOT
+  # ============================
+  backend:
+    name: Backend - Spring Boot
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_DB: souk_db
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d souk_db"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/souk_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_JPA_HIBERNATE_DDL_AUTO: none
+
+    defaults:
+      run:
+        working-directory: backendsouk
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+          cache-dependency-path: backendsouk/pom.xml
+
+      - name: Run tests and package backend
+        run: mvn -B -ntp clean verify
+
+      - name: Upload backend artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: souk-backend
+          path: backendsouk/target/*.jar
+          if-no-files-found: error
