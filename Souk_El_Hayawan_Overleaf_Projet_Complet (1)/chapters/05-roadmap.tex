@@ -1,0 +1,64 @@
+\chapter{Organisation du développement en sprints}
+\section{Méthode de découpage}
+Les sprints suivent un principe de construction cumulative : le catalogue et la localisation précèdent les annonces ; les comptes et autorisations précèdent l’édition des contenus ; les annonces réelles précèdent les favoris, la recherche avancée et les notifications. La numérotation suivante constitue une \textbf{planification indicative}, pas une exécution passée.
+
+\begin{figure}[htbp]\centering
+\input{figures/phases}
+\caption{Progression planifiée du monolithe vers des fonctionnalités avancées}
+\label{fig:phases}
+\end{figure}
+
+\section{Roadmap synthétique}
+\small
+\begin{longtable}{@{}P{16mm}P{42mm}P{62mm}P{22mm}@{}}
+\caption{Planification S00 à S16 et sprint 08 bis}\label{tab:roadmap}\\
+\toprule\textbf{Sprint} & \textbf{Objectif} & \textbf{Livrable / compétence dominante} & \textbf{Stories}\\\midrule\endfirsthead
+\toprule\textbf{Sprint} & \textbf{Objectif} & \textbf{Livrable / compétence dominante} & \textbf{Stories}\\\midrule\endhead
+\sprintcell{S00}{Démarrage du projet}{Git, Spring Boot, Angular, page d’accueil réelle, API de santé.}{001--003}
+\sprintcell{S01}{Catégories / races}{PostgreSQL, Flyway, JPA, API de lecture et écran catalogue.}{010, 011, 013}
+\sprintcell{S02}{Localisation}{Gouvernorats, délégations, sélection dépendante et données sourcées.}{020, 021}
+\sprintcell{S03}{Sécurité}{Inscription, connexion, Keycloak/OIDC, rôles et permissions.}{030--032}
+\sprintcell{S04}{Back-office}{Administration des catégories/races et audit minimal.}{012, 022}
+\sprintcell{S05}{Publication}{Vente, adoption gratuite, don, photos, états, contrôle de propriété.}{040--042, 047, 049}
+\sprintcell{S06}{Recherche}{Filtres combinés, pagination et recherche réelle sur annonces publiées.}{043--045}
+\sprintcell{S07}{Échanges}{Favoris et conversations privées avec autorisations.}{050--052}
+\sprintcell{S08}{Alertes de recherche}{Requêtes enregistrées, Scheduler, notification sans doublon.}{053}
+\sprintcell{S08 bis}{Entraide animale}{Avis PERDU / VOL PRÉSUMÉ / TROUVÉ, modération, restitution.}{065--068, 076, 077}
+\sprintcell{S09}{Carte et proximité}{Recherche géographique ; PostGIS si nécessaire.}{023}
+\sprintcell{S10}{Matching métier}{Classement explicable et éventuelles demandes d’achat.}{060}
+\sprintcell{S11}{Assistant IA}{Recherche textuelle FR / ar-TN / Arabizi / EN et validation des filtres.}{061, 062}
+\sprintcell{S12}{Confiance et reporting}{Modération renforcée et comparaisons de prix indicatives.}{063, 064}
+\sprintcell{S13}{Rapprochement prudent}{Suggestions entre avis disparus et trouvés, avec revue humaine.}{069}
+\sprintcell{S14}{Technologies ciblées}{Spring Batch, GraphQL, client asynchrone sur cas justifiés.}{070--072}
+\sprintcell{S15}{Industrialisation}{Tests intégrés, Docker, CI/CD et observabilité.}{073, 074}
+\sprintcell{S16}{Microservices}{Extraction d’un module stable, contrats et résilience.}{075}
+\bottomrule
+\end{longtable}
+\normalsize
+
+\section{Dépendances métier et techniques}
+\begin{itemize}
+\item Le référentiel \textbf{espèce / race} précède les annonces qui en dépendent.
+\item Le référentiel \textbf{gouvernorat / délégation} précède les recherches régionales.
+\item Les \textbf{autorisations} précèdent la gestion privée des annonces et le back-office.
+\item Une \textbf{recherche réelle} suppose des annonces persistées et un état de publication contrôlé.
+\item La \textbf{séparation en microservices} ne sera étudiée qu’après stabilisation de tests et des frontières métier.
+\end{itemize}
+
+\section{Livrables de conception exigés pour chaque sprint}\label{sec:pack}
+\begin{table}[htbp]\centering\small
+\caption{Pack de conception et de recette à produire sprint par sprint}
+\begin{tabularx}{\textwidth}{@{}P{9mm}P{52mm}Y@{}}\toprule
+\textbf{N°} & \textbf{Livrable} & \textbf{Contenu attendu}\\\midrule
+01 & Fiche de sprint & Objectif, périmètre, stories, dépendances et critères de recette.\\
+02 & Diagramme de cas d’utilisation & Image UML regroupant les acteurs et cas d’utilisation du sprint.\\
+03 & Fiches de cas d’utilisation & Tableau par cas : pré/postconditions, scénario nominal, alternatives, erreurs.\\
+04 & Diagrammes de séquence & Un diagramme par cas d’utilisation détaillé significatif.\\
+05 & Diagramme de classes & Classes concernées, attributs, liens et multiplicités.\\
+06 & Diagrammes d’activité & Parcours métier et décisions, surtout pour les cas complexes.\\
+07 & Maquettes basse fidélité & Écrans façon Balsamiq, sans se confondre avec l’UI finale.\\
+08 & Règles / tests / démonstration & Traçabilité story--test, validations, captures et bilan de sprint.\\
+\bottomrule\end{tabularx}\end{table}
+
+\section{Définition de « terminé » (DoD)}
+Une fonctionnalité est considérée comme achevée seulement si : \textbf{(1)} le besoin est expliqué, \textbf{(2)} les interfaces et modèles sont cohérents, \textbf{(3)} le code a été produit et revu, \textbf{(4)} les scénarios nominal, erreur et sécurité sont testés, \textbf{(5)} la démonstration fonctionne avec des données réelles lorsqu’elles sont nécessaires, et \textbf{(6)} la documentation et le commit sont disponibles.

@@ -1,0 +1,8 @@
+\begin{tikzpicture}[font=\sffamily\small]
+\node[draw=ForestDark,fill=ForestDark,rounded corners=3mm,text=white,minimum width=10.7cm,minimum height=1.0cm] (brand) at (0,0) {\textbf{SOUK EL HAYAWAN} --- Plateforme tunisienne multi-espèces};
+\node[draw=Forest!75,fill=Sage,rounded corners=2mm,minimum width=5.1cm,minimum height=1.65cm,align=center] (market) at (-2.8,-2) {\textbf{Annonces d’animaux}\\[4pt] Vente \enspace|\enspace Adoption gratuite \enspace|\enspace Don};
+\node[draw=Forest!75,fill=Sage,rounded corners=2mm,minimum width=5.1cm,minimum height=1.65cm,align=center] (care) at (2.8,-2) {\textbf{Entraide et recherche}\\[4pt] Perdu \enspace|\enspace Vol présumé \enspace|\enspace Trouvé};
+\draw[-{Stealth},line width=1.2pt,Forest] (brand.south) -- ++(0,-.4) -| (market.north);
+\draw[-{Stealth},line width=1.2pt,Forest] (brand.south) -- ++(0,-.4) -| (care.north);
+\node[font=\footnotesize,align=center,text=Muted] at (0,-3.3) {Projet de mise en relation ; contrôles de publication, vie privée et modération};
+\end{tikzpicture}

@@ -1,0 +1,13 @@
+\begin{tikzpicture}[font=\sffamily\small,node distance=6mm]
+\tikzset{arch/.style={draw=Forest,rounded corners=1.5mm,fill=Sage,minimum width=35mm,minimum height=13mm,align=center}}
+\node[arch] (ui) at (0,0) {\textbf{Angular}\\Interface web};
+\node[arch,minimum width=54mm] (api) at (5.3,0) {\textbf{Spring Boot}\\API REST / modules métier};
+\node[arch] (db) at (10.6,0) {\textbf{PostgreSQL}\\Données métier};
+\draw[-{Stealth[length=2mm]},Forest,thick] (ui.east) -- node[above,font=\scriptsize]{HTTPS/JSON} (api.west);
+\draw[-{Stealth[length=2mm]},Forest,thick] (api.east) -- node[above,font=\scriptsize]{JPA} (db.west);
+\node[draw=LineGray,fill=LightGray,rounded corners=1mm,minimum width=52mm,minimum height=8mm,align=center] (identity) at (5.3,-2) {\footnotesize\textbf{Keycloak / OIDC} : identité (sprint ultérieur)};
+\node[draw=LineGray,fill=LightGray,rounded corners=1mm,minimum width=35mm,minimum height=8mm,align=center] (flyway) at (10.6,-2) {\footnotesize\textbf{Flyway} : migrations};
+\draw[dashed,-{Stealth},Muted] (identity.north) -- (api.south);
+\draw[dashed,-{Stealth},Muted] (flyway.north) -- (db.south);
+\node[font=\scriptsize,text=Muted] at (5.3,-3) {Première architecture : monolithe modulaire ; microservices étudiés après stabilisation};
+\end{tikzpicture}

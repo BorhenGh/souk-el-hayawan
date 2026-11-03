@@ -1,0 +1,83 @@
+\chapter{Backlog produit global}
+\section{Organisation et priorités}
+Le backlog constitue la source de référence des fonctionnalités. Il est structuré en \textbf{epics} et \textbf{user stories} ; chaque sprint sélectionne un ensemble cohérent de stories. Les identifiants de la version Drive existante sont conservés pour faciliter la traçabilité.
+
+\begin{notebox}
+\textbf{Priorités :} \tagstatus{M} indispensable au MVP ; \tagstatus{S} souhaitable ou phase ultérieure ; \tagstatus{C} amélioration de long terme. Une story marquée \tagstatus{À confirmer} ne devient pas un engagement de sprint par défaut.
+\end{notebox}
+
+\newcommand{\Epic}[1]{\multicolumn{3}{@{}l}{\vspace{3pt}\textbf{\sffamily\color{ForestDark}#1}}\\[-1pt]\midrule}
+\newcommand{\Story}[3]{\texttt{#1} & #2 & #3\\}
+\small
+\begin{longtable}{@{}P{19mm}P{19mm}P{104mm}@{}}
+\caption{Backlog global --- version de conception, identifiants alignés sur le Drive}\label{tab:backlog}\\
+\toprule\textbf{ID} & \textbf{Prio.} & \textbf{User story synthétisée}\\\midrule\endfirsthead
+\toprule\textbf{ID} & \textbf{Prio.} & \textbf{User story synthétisée}\\\midrule\endhead
+\Epic{E01 --- Fondations et interface}
+\Story{US-001}{M}{Consulter une page d’accueil responsive sans fonctionnalités simulées.}
+\Story{US-002}{M}{Démarrer Spring Boot, Angular, Git et environnement local documenté.}
+\Story{US-003}{M}{Fournir une API de santé et une structure applicative claire.}
+\Story{US-004}{S}{Changer de langue FR / ar-TN / EN et gérer le sens RTL.}
+\Epic{E02 --- Catégories et races}
+\Story{US-010}{M}{Consulter les catégories d’animaux d’élevage et de compagnie et leurs races.}
+\Story{US-011}{M}{Garantir l’intégrité des relations espèce--race dans PostgreSQL.}
+\Story{US-012}{M}{Administrer l’ajout, l’édition et la désactivation des catégories/races.}
+\Story{US-013}{S}{Afficher le catalogue avec traductions dans trois langues.}
+\Epic{E03 --- Localisation}
+\Story{US-020}{M}{Choisir un gouvernorat issu d’un référentiel vérifié.}
+\Story{US-021}{M}{Afficher les délégations du gouvernorat sélectionné.}
+\Story{US-022}{S}{Importer ou corriger un référentiel géographique traçable.}
+\Story{US-023}{S}{Explorer les annonces sur une carte ou par rayon.}
+\Epic{E04 --- Comptes et habilitations}
+\Story{US-030}{M}{Créer un compte et se connecter / déconnecter.}
+\Story{US-031}{M}{Gérer les informations personnelles autorisées.}
+\Story{US-032}{M}{Appliquer les droits membre, modérateur et administrateur.}
+\Story{US-033}{M}{Permettre à l’auteur de gérer uniquement ses annonces.}
+\Epic{E05 --- Annonces et recherche}
+\Story{US-040}{M}{Créer, publier, modifier, suspendre ou clôturer une annonce de vente, adoption gratuite ou don.}
+\Story{US-041}{M}{Joindre photos et caractéristiques adaptées à l’espèce et au type d’offre.}
+\Story{US-042}{M}{N’afficher publiquement que les annonces publiées.}
+\Story{US-043}{M}{Rechercher par offre, espèce, race, prix applicable et région.}
+\Story{US-044}{M}{Trier, paginer et consulter une fiche détaillée.}
+\Story{US-045}{S}{Partager une URL de recherche persistante.}
+\Story{US-046}{S}{Suivre les vues et le statut de ses annonces.}
+\Story{US-047}{M}{Publier adoption gratuite ou don, sans prix ni contrepartie cachée.}
+\Story{US-048}{À confirmer}{Rechercher ou proposer une mise en relation pour reproduction/saillie.}
+\Story{US-049}{M}{Valider prix, types d’offres et catégories autorisées.}
+\Epic{E06 --- Échanges et notifications}
+\Story{US-050}{M}{Ajouter / retirer des annonces des favoris.}
+\Story{US-051}{M}{Contacter l’auteur d’une annonce dans une conversation privée.}
+\Story{US-052}{M}{Répondre aux conversations autorisées.}
+\Story{US-053}{S}{Enregistrer une recherche et recevoir des alertes sans doublon.}
+\Epic{E07 --- IA, modération et entraide}
+\Story{US-060}{S}{Proposer un classement explicable des annonces pertinentes.}
+\Story{US-061}{S}{Transformer une recherche libre multilingue en filtres confirmables.}
+\Story{US-062}{S}{Assister la rédaction d’annonce sous validation humaine.}
+\Story{US-063}{M avant ouverture}{Traiter les signalements et contrôler les contenus.}
+\Story{US-064}{S}{Comparer des prix à partir de données disponibles, de manière indicative.}
+\Story{US-065}{M}{Déposer un avis PERDU ou VOL PRÉSUMÉ.}
+\Story{US-066}{M}{Modérer les avis PERDU / VOL PRÉSUMÉ / TROUVÉ.}
+\Story{US-067}{M}{Rechercher les avis d’entraide et transmettre une observation en privé.}
+\Story{US-068}{M}{Clôturer un avis après retrouvailles ou restitution vérifiée.}
+\Story{US-069}{S}{Suggérer plus tard des rapprochements entre avis, sous revue humaine.}
+\Story{US-076}{M}{Déclarer « J’ai trouvé un animal » avec photo et lieu approximatif.}
+\Story{US-077}{M}{Échanger en privé et vérifier l’appartenance avant restitution.}
+\Epic{E08 --- Technologies avancées et qualité}
+\Story{US-070}{S}{Importer de gros référentiels via Spring Batch.}
+\Story{US-071}{C}{Proposer une lecture GraphQL ciblée en complément de REST.}
+\Story{US-072}{C}{Intégrer une API externe de manière non bloquante si nécessaire.}
+\Story{US-073}{M}{Automatiser les tests, builds et livraisons.}
+\Story{US-074}{S}{Exposer des métriques, logs et états de santé utiles.}
+\Story{US-075}{C}{Extraire un module stable en microservice sans régression.}
+\bottomrule
+\end{longtable}
+\normalsize
+
+\section{Règles de suivi du backlog}
+\begin{itemize}
+\item Chaque user story conserve un \textbf{identifiant stable}.
+\item La priorité est révisable selon la faisabilité et la valeur métier.
+\item Les stories de \textbf{reproduction} restent provisoires tant que le périmètre n’est pas confirmé.
+\item Les fonctionnalités de \textbf{modération minimale} peuvent être avancées pour sécuriser une mise en ligne.
+\item Une story n’est « terminée » qu’après code fonctionnel, cas d’erreur, tests et démonstration.
+\end{itemize}

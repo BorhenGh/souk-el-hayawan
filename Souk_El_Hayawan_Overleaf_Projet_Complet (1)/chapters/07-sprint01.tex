@@ -1,0 +1,59 @@
+\chapter{Sprint S01 --- Référentiel des animaux}\label{ch:s01}
+\section{Fiche de sprint}
+\begin{table}[htbp]\centering\small
+\caption{Cadrage du sprint S01}
+\begin{tabularx}{\textwidth}{@{}P{31mm}Y@{}}\toprule
+\textbf{Champ} & \textbf{Description}\\\midrule
+Objectif & Fournir un catalogue réel d’espèces et de races, stocké en base, consultable par API puis par Angular.\\
+Stories & \texttt{US-010}, \texttt{US-011}, \texttt{US-013}.\\
+Préconditions & Socle S00 validé, PostgreSQL disponible, modèle relationnel accepté.\\
+Livrables & Migrations Flyway, entités JPA, API GET de catégories/races, écran de consultation.\\
+Vérification & Les valeurs affichées proviennent de PostgreSQL ; contraintes d’intégrité et traductions vérifiées.\\
+Statut & \tagstatus{PLANIFIÉ} --- diagrammes de conception préliminaires.\\
+\bottomrule\end{tabularx}\end{table}
+
+\section{Use cases du sprint}
+\begin{figure}[H]\centering\input{figures/s01-usecase}
+\caption{S01 --- diagramme de cas d’utilisation du référentiel}\label{fig:s01-uc}\end{figure}
+
+\section{UC-S01-01 --- Consulter les races d’une catégorie}
+\begin{longtable}{@{}P{35mm}P{108mm}@{}}\caption{Description du cas UC-S01-01}\label{tab:s01-uc1}\\
+\toprule\textbf{Rubrique} & \textbf{Description}\\\midrule\endfirsthead\toprule\textbf{Rubrique} & \textbf{Description}\\\midrule\endhead
+\UCrow{Code}{UC-S01-01}
+\UCrow{Acteur principal}{Visiteur}
+\UCrow{Objectif}{Consulter les races actives d’une catégorie d’animaux.}
+\UCrow{Préconditions}{Le catalogue persistant contient des catégories valides ; le service de consultation est disponible.}
+\UCrow{Déclencheur}{Choix d’une catégorie dans l’interface.}
+\UCrow{Scénario nominal}{1. Charger les catégories actives.\newline 2. Sélectionner une catégorie.\newline 3. Angular appelle l’API des races.\newline 4. Le backend vérifie la catégorie et retourne les races actives.\newline 5. L’interface affiche la liste.}
+\UCrow{Alternatives}{Catégorie inconnue : message adapté ; aucune race : état vide explicite ; API indisponible : gestion d’erreur sans fausses données.}
+\UCrow{Règles métier}{Une race appartient à une catégorie ; seules les catégories et races actives sont visibles.}
+\UCrow{Postconditions}{Le visiteur voit les races réellement présentes dans la base.}
+\UCrow{Critères}{API et interface synchronisées ; changement de catégorie actualise les races ; tests des états vide/invalide.}
+\bottomrule\end{longtable}
+
+\begin{figure}[H]\centering\resizebox{\textwidth}{!}{\input{figures/s01-sequence}}
+\caption{UC-S01-01 --- diagramme de séquence Angular / REST / JPA}\label{fig:s01-seq}\end{figure}
+
+\section{Modèle de classes préliminaire}
+\begin{figure}[H]\centering\input{figures/s01-class}
+\caption{S01 --- diagramme de classes conceptuel des catégories et races}\label{fig:s01-class}\end{figure}
+Le modèle propose une relation \textbf{une catégorie vers plusieurs races}. L’entité de libellé localisé est une \emph{option de conception}, à valider selon la stratégie choisie pour les trois langues. Aucun code de race ni aucune liste géographique ne doit être inventé pour remplir la base.
+
+\section{Diagramme d’activité}
+\begin{figure}[H]\centering\input{figures/s01-activity}
+\caption{S01 --- consultation d’une catégorie et de ses races}\label{fig:s01-act}\end{figure}
+
+\section{Maquette de catalogue --- style Balsamiq}
+\begin{figure}[H]\centering\resizebox{\textwidth}{!}{\input{figures/s01-wireframe}}
+\caption{S01 --- wireframe de consultation des espèces et races}\label{fig:s01-wire}\end{figure}
+
+\section{Tests attendus}
+\begin{itemize}
+\item Catégories actives listées ; catégories inactives absentes du résultat public.
+\item Races d’une catégorie obtenues par une requête réellement exécutée.
+\item Catégorie inconnue et catégorie vide traitées sans affichage trompeur.
+\item Intégrité relationnelle vérifiée par contrainte de clé étrangère.
+\item Données de référence sourcées et migrations reproductibles.
+\item Interface Angular raccordée à la vraie API ; tests manuels et automatisés.
+\end{itemize}
+\appendixplaceholder{scripts Flyway rédigés par le développeur, tests JUnit, captures Angular et démonstration du sprint S01}

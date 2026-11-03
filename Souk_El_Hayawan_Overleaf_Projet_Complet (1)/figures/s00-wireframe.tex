@@ -1,0 +1,22 @@
+\begin{tikzpicture}[x=1cm,y=1cm,font=\sffamily\scriptsize]
+\fill[LightGray] (0,0) rectangle (13.5,-7.2);
+\draw[Muted,thick,rounded corners=1mm] (0,0) rectangle (13.5,-7.2);
+\fill[gray!22] (0,0) rectangle (13.5,-.72);
+\node[anchor=west,font=\bfseries] at (.35,-.35) {SOUK EL HAYAWAN};
+\foreach \x/\t in {8.9/Catalogue,10.5/Entraide,12.0/Connexion}{\node at (\x,-.35) {\t};}
+\draw[densely dashed,gray!70] (.45,-1.15) rectangle (13,-3.45);
+\node[font=\normalsize\bfseries] at (6.75,-1.8) {Tous les animaux, une même plateforme};
+\node[font=\scriptsize,text=Muted,align=center] at (6.75,-2.3) {Vente, adoption, don et entraide --- présentation du projet};
+\fill[gray!40] (5.85,-2.68) rectangle (7.65,-3.13);
+\node at (6.75,-2.9) {Découvrir};
+\node[anchor=west,font=\small\bfseries] at (.55,-4.02) {Les services proposés};
+\foreach \x/\t/\tB in {.65/Vente/{Annonce},4.82/Adoption/{Gratuite},8.99/Entraide/{Disparus}}{
+ \draw[gray!70,rounded corners=1mm,fill=white] (\x,-4.35) rectangle ++(3.75,-1.8);
+ \fill[gray!24] (\x+.24,-4.6) rectangle ++(3.25,-.65);
+ \draw[gray!50] (\x+.24,-4.6) -- ++(3.25,-.65);
+ \draw[gray!50] (\x+3.49,-4.6) -- ++(-3.25,-.65);
+ \node[font=\bfseries] at (\x+1.875,-5.55) {\t};
+ \node[text=Muted] at (\x+1.875,-5.86) {\tB};
+}
+\node[anchor=west,text=Muted] at (.5,-6.75) {À propos \quad | \quad Contact \quad | \quad Conditions d’utilisation};
+\end{tikzpicture}

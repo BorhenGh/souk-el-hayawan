@@ -1,0 +1,13 @@
+\begin{tikzpicture}[x=1cm,y=1cm,font=\sffamily\scriptsize]
+\foreach \x/\label in {.2/Visiteur,2.6/Angular,5.1/{CatalogController},7.9/{CatalogService},10.55/{Repository / DB}}{
+ \node[draw=Forest,fill=Sage,rounded corners=1mm,minimum width=21mm,minimum height=8mm,align=center] at (\x,0) {\label};
+ \draw[densely dashed,Muted] (\x,-.4)--(\x,-5.05);
+}
+\draw[-{Stealth},Forest] (.2,-.85)--node[above]{Choisir catégorie}(2.6,-.85);
+\draw[-{Stealth},Forest] (2.6,-1.55)--node[above]{GET /categories/\{id\}/breeds}(5.1,-1.55);
+\draw[-{Stealth},Forest] (5.1,-2.25)--node[above]{listerRaces(id)}(7.9,-2.25);
+\draw[-{Stealth},Forest] (7.9,-2.95)--node[above]{findByCategory(id)}(10.55,-2.95);
+\draw[-{Stealth},Muted,dashed] (10.55,-3.65)--node[above]{Races actives}(7.9,-3.65);
+\draw[-{Stealth},Muted,dashed] (7.9,-4.25)--node[above]{DTO JSON}(2.6,-4.25);
+\draw[-{Stealth},Muted,dashed] (2.6,-4.82)--node[above]{Afficher races}( .2,-4.82);
+\end{tikzpicture}

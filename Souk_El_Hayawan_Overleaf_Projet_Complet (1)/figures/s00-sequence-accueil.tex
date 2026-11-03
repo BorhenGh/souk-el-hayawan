@@ -1,0 +1,11 @@
+\begin{tikzpicture}[x=1cm,y=1cm,font=\sffamily\scriptsize]
+\foreach \x/\label in {0.5/Visiteur,3.3/Navigateur,6.2/Angular,9.2/{Page accueil}}{
+ \node[draw=Forest,rounded corners=1mm,fill=Sage,minimum width=21mm,minimum height=8mm,align=center] at (\x,0) {\label};
+ \draw[densely dashed,Muted] (\x,-.4) -- (\x,-4.15);
+}
+\draw[-{Stealth},Forest] (.5,-1) -- node[above]{Saisir l’URL} (3.3,-1);
+\draw[-{Stealth},Forest] (3.3,-1.65) -- node[above]{Charger application} (6.2,-1.65);
+\draw[-{Stealth},Forest] (6.2,-2.3) -- node[above]{Construire la vue} (9.2,-2.3);
+\draw[-{Stealth},Muted,dashed] (9.2,-2.95) -- node[above]{Contenu statique} (6.2,-2.95);
+\draw[-{Stealth},Muted,dashed] (6.2,-3.58) -- node[above]{Afficher accueil} (.5,-3.58);
+\end{tikzpicture}

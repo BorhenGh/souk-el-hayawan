@@ -1,0 +1,11 @@
+\begin{tikzpicture}[x=1cm,y=1cm,font=\sffamily\scriptsize]
+\foreach \x/\label in {.5/Développeur,3.6/{Client HTTP},6.8/{HealthController},10.1/{Réponse API}}{
+ \node[draw=Forest,rounded corners=1mm,fill=Sage,minimum width=23mm,minimum height=8mm,align=center] at (\x,0) {\label};
+ \draw[densely dashed,Muted] (\x,-.4) -- (\x,-4.2);
+}
+\draw[-{Stealth},Forest] (.5,-1) -- node[above]{Exécuter test} (3.6,-1);
+\draw[-{Stealth},Forest] (3.6,-1.72) -- node[above]{GET /api/health} (6.8,-1.72);
+\draw[-{Stealth},Forest] (6.8,-2.44) -- node[above]{Construire état UP} (10.1,-2.44);
+\draw[-{Stealth},Muted,dashed] (10.1,-3.16) -- node[above]{HTTP 200 / JSON} (3.6,-3.16);
+\draw[-{Stealth},Muted,dashed] (3.6,-3.88) -- node[above]{Résultat vérifiable} (.5,-3.88);
+\end{tikzpicture}

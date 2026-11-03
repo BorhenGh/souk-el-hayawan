@@ -1,0 +1,80 @@
+\chapter{Sprint S00 --- Initialisation du projet}\label{ch:s00}
+\section{Fiche de sprint}
+\begin{table}[htbp]\centering\small
+\caption{Cadrage du sprint S00}
+\begin{tabularx}{\textwidth}{@{}P{31mm}Y@{}}\toprule
+\textbf{Champ} & \textbf{Description}\\\midrule
+Objectif & Créer un nouveau dépôt Git et un socle technique propre avec une page d’accueil responsive et une API de santé.\\
+Périmètre & Spring Boot, Angular, Git, configuration locale, README, architecture simple ; pas de base de données ni d’authentification métier.\\
+Stories & \texttt{US-001, US-002, US-003}.\\
+Résultat attendu & Backend et frontend qui démarrent ; contenu descriptif sans fausses annonces.\\
+Préconditions & Environnement Java/Node/Git vérifié, compatibilité Angular et Node confirmée.\\
+Recette & GET santé en HTTP 200 ; frontend compilé ; page responsive ; README reproductible ; dépôt sans secrets.\\
+Statut & \tagstatus{PLANIFIÉ} --- démarrage après validation du cadrage.\\
+\bottomrule\end{tabularx}
+\end{table}
+
+\section{Diagramme de cas d’utilisation du sprint}
+\begin{figure}[H]\centering\input{figures/s00-usecase}
+\caption{S00 --- diagramme de cas d’utilisation}\label{fig:s00-uc}\end{figure}
+L’initialisation technique n’est pas un parcours commercial ; les deux cas du sprint concernent la \textbf{présentation du service} et la \textbf{vérification de disponibilité}. Les cas de catalogue persistant commencent au sprint S01.
+
+\section{UC-S00-01 --- Consulter la page d’accueil}
+\begin{longtable}{@{}P{35mm}P{108mm}@{}}\caption{Description du cas UC-S00-01}\label{tab:s00-uc1}\\
+\toprule\textbf{Rubrique} & \textbf{Description}\\\midrule\endfirsthead\toprule\textbf{Rubrique} & \textbf{Description}\\\midrule\endhead
+\UCrow{Code}{UC-S00-01}
+\UCrow{Acteur principal}{Visiteur}
+\UCrow{Objectif}{Lire la présentation de Souk El Hayawan et comprendre les services envisagés.}
+\UCrow{Précondition}{Le frontend est lancé et son URL est accessible.}
+\UCrow{Déclencheur}{Le visiteur ouvre la page d’accueil.}
+\UCrow{Scénario nominal}{1. Le navigateur charge l’application.\newline 2. Angular initialise la page.\newline 3. Le visiteur consulte l’identité, le périmètre et les catégories de services.}
+\UCrow{Alternative}{En cas de chargement impossible, le navigateur présente un état d’erreur.}
+\UCrow{Postcondition}{La page descriptive est affichée sans résultat de recherche fictif.}
+\UCrow{Critère de recette}{Affichage desktop/mobile sans débordement ; pas de bouton prétendant appeler une fonctionnalité inexistante.}
+\bottomrule
+\end{longtable}
+
+\begin{figure}[H]\centering\input{figures/s00-sequence-accueil}
+\caption{UC-S00-01 --- diagramme de séquence de consultation}\label{fig:s00-seq-accueil}\end{figure}
+
+\section{UC-S00-02 --- Vérifier la disponibilité de l’API}
+\begin{longtable}{@{}P{35mm}P{108mm}@{}}\caption{Description du cas UC-S00-02}\label{tab:s00-uc2}\\
+\toprule\textbf{Rubrique} & \textbf{Description}\\\midrule\endfirsthead\toprule\textbf{Rubrique} & \textbf{Description}\\\midrule\endhead
+\UCrow{Code}{UC-S00-02}
+\UCrow{Acteur principal}{Développeur}
+\UCrow{Objectif}{Vérifier que Spring Boot est accessible via une route de santé.}
+\UCrow{Précondition}{Le serveur backend est démarré et son port est connu.}
+\UCrow{Déclencheur}{Envoi d’une requête GET vers l’endpoint de santé.}
+\UCrow{Scénario nominal}{1. Le développeur envoie la requête.\newline 2. Le contrôleur construit un statut.\newline 3. Le client reçoit le code HTTP 200 et un JSON exploitable.}
+\UCrow{Alternative}{Backend indisponible : erreur de connexion ou réponse non conforme.}
+\UCrow{Postcondition}{L’état de disponibilité est objectivement vérifié.}
+\UCrow{Critère de recette}{Code HTTP 200, contrat de réponse documenté et commande de test reproductible.}
+\bottomrule\end{longtable}
+\begin{figure}[H]\centering\input{figures/s00-sequence-health}
+\caption{UC-S00-02 --- diagramme de séquence de vérification API}\label{fig:s00-seq-health}\end{figure}
+
+\section{Diagramme de classes de conception}
+\begin{figure}[H]\centering\input{figures/s00-class}
+\caption{S00 --- premier diagramme de classes technique, sans données métier}\label{fig:s00-class}\end{figure}
+
+\section{Diagramme d’activité}
+\begin{figure}[H]\centering\input{figures/s00-activity}
+\caption{S00 --- activité de consultation de l’accueil}\label{fig:s00-act}\end{figure}
+
+\section{Maquette de l’accueil --- style Balsamiq}
+\begin{figure}[H]\centering\resizebox{\textwidth}{!}{\input{figures/s00-wireframe}}
+\caption{S00 --- maquette basse fidélité de la landing page (illustration)}\label{fig:s00-wire}\end{figure}
+\begin{notebox}
+\textbf{Décision de conception :} S00 ne présente pas de faux comptes ou de fausses annonces. La maquette représente une page \emph{informative}. Les écrans de catalogue reliés à la base réelle interviennent en S01.
+\end{notebox}
+
+\section{Travaux du développeur et validation}
+\begin{enumerate}
+\item Rédiger trois parcours utilisateur avec ses propres mots.
+\item Créer le dépôt Git, organiser \texttt{frontend/} et \texttt{backend/}, configurer \texttt{.gitignore}.
+\item Initialiser Spring Boot et créer l’endpoint de santé.
+\item Initialiser Angular, SCSS et les composants de base.
+\item Réaliser l’accueil, vérifier le responsive et les liens actifs.
+\item Produire un README et une démonstration de fonctionnement.
+\end{enumerate}
+\appendixplaceholder{résultats des tests, captures de l’application développée, détails d’implémentation et bilan personnel du sprint S00}

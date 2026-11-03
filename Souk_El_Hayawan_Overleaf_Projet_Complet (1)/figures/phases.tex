@@ -1,0 +1,9 @@
+\begin{tikzpicture}[font=\sffamily\small]
+\foreach \x/\t/\s/\c in {0/{Fondations}/{S00--S04}/ForestDark,3.7/{MVP métier}/{S05--S08 bis}/Forest,7.4/{Évolutions}/{S09--S13}/Leaf,11.1/{Architecture}/{S14--S16}/Amber}{
+ \node[draw=\c,fill=\c,minimum width=33mm,minimum height=12mm,rounded corners=1.2mm,text=white,align=center] (f\x) at (\x,0) {\textbf{\t}\\{\scriptsize\s}};
+}
+\draw[ForestDark,line width=1.5pt,-{Stealth}] (1.75,0) -- (2,0);
+\draw[ForestDark,line width=1.5pt,-{Stealth}] (5.45,0) -- (5.7,0);
+\draw[ForestDark,line width=1.5pt,-{Stealth}] (9.15,0) -- (9.4,0);
+\node[align=center,text=Muted,font=\scriptsize] at (5.55,-1.1) {Chaque étape réutilise les acquis des sprints précédents};
+\end{tikzpicture}

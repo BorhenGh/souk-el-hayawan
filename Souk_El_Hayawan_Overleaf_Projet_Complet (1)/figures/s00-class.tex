@@ -1,0 +1,6 @@
+\begin{tikzpicture}[font=\sffamily\small]
+\node[draw=Forest,rectangle split,rectangle split parts=3,rounded corners=1mm,fill=Sage,text width=46mm,align=left] (c) at (0,0) {\textbf{HealthController}\nodepart{second}\texttt{- service: HealthService}\nodepart{third}\texttt{+ health(): HealthStatus}};
+\node[draw=Forest,rectangle split,rectangle split parts=3,rounded corners=1mm,fill=Sage,text width=48mm,align=left] (s) at (7,0) {\textbf{HealthStatus}\nodepart{second}\texttt{+ status: String}\nodepart{third}\textit{Objet de réponse HTTP}};
+\draw[-{Stealth[length=2mm]},thick,Forest] (c.east) -- node[above,font=\scriptsize]{retourne} (s.west);
+\node[font=\scriptsize,text=Muted,align=center] at (3.5,-2) {Modèle pédagogique de conception : aucun objet métier ni couche JPA au Sprint 0};
+\end{tikzpicture}

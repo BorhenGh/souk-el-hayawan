@@ -1,0 +1,26 @@
+\babel@toc {french}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Deux espaces métier clairement séparés --- proposition de conception}}{5}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Architecture logique envisagée : monolithe modulaire et API REST}}{8}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Cas d’utilisation métier principaux de Souk El Hayawan}}{9}{figure.caption.11}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Progression planifiée du monolithe vers des fonctionnalités avancées}}{13}{figure.caption.12}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces S00 --- diagramme de cas d’utilisation}}{16}{figure.caption.15}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces UC-S00-01 --- diagramme de séquence de consultation}}{17}{figure.caption.16}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces UC-S00-02 --- diagramme de séquence de vérification API}}{18}{figure.caption.17}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces S00 --- premier diagramme de classes technique, sans données métier}}{18}{figure.caption.18}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces S00 --- activité de consultation de l’accueil}}{19}{figure.caption.19}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces S00 --- maquette basse fidélité de la landing page (illustration)}}{19}{figure.caption.20}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces S01 --- diagramme de cas d’utilisation du référentiel}}{21}{figure.caption.22}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces UC-S01-01 --- diagramme de séquence Angular / REST / JPA}}{22}{figure.caption.23}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces S01 --- diagramme de classes conceptuel des catégories et races}}{23}{figure.caption.24}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces S01 --- consultation d’une catégorie et de ses races}}{23}{figure.caption.25}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces S01 --- wireframe de consultation des espèces et races}}{24}{figure.caption.26}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

@@ -1,0 +1,29 @@
+% ==============================================================
+% Souk El Hayawan — rapport PFE, version Overleaf éditable
+% Compiler : XeLaTeX (2 passages) — main.tex
+% ==============================================================
+\documentclass[12pt,oneside]{report}
+\usepackage{styles/rapport}
+
+\begin{document}
+\input{chapters/00-couverture}
+\pagenumbering{roman}
+\input{chapters/00-avant-propos}
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+\clearpage
+\pagenumbering{arabic}
+\input{chapters/01-introduction}
+\input{chapters/02-existant}
+\input{chapters/03-solution}
+\input{chapters/04-backlog}
+\input{chapters/05-roadmap}
+\input{chapters/06-sprint00}
+\input{chapters/07-sprint01}
+\input{chapters/08-perspectives}
+\appendix
+\input{chapters/09-annexes}
+\end{document}

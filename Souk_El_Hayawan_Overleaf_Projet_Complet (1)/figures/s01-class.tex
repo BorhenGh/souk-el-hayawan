@@ -1,0 +1,9 @@
+\begin{tikzpicture}[font=\sffamily\scriptsize]
+\node[draw=Forest,fill=Sage,rectangle split,rectangle split parts=3,rounded corners=1mm,text width=38mm,align=left] (category) at (0,0) {\textbf{AnimalCategory}\nodepart{second}\texttt{+ id: Long}\\\texttt{+ code: String}\\\texttt{+ active: Boolean}\nodepart{third}\textit{Référentiel d’espèces}};
+\node[draw=Forest,fill=Sage,rectangle split,rectangle split parts=3,rounded corners=1mm,text width=40mm,align=left] (breed) at (7.5,0) {\textbf{AnimalBreed}\nodepart{second}\texttt{+ id: Long}\\\texttt{+ code: String}\\\texttt{+ nameFr: String}\\\texttt{+ active: Boolean}\nodepart{third}\textit{Race d’une catégorie}};
+\draw[Forest,thick] (category.east)--node[above,font=\small]{\textbf{1}\quad contient \quad\textbf{0..*}}(breed.west);
+\node[draw=LineGray,fill=LightGray,rectangle split,rectangle split parts=2,text width=36mm,align=left] (translated) at (3.7,-2.7) {\textbf{LocalizedLabel}\nodepart{second}\texttt{+ locale: String}\\\texttt{+ value: String}};
+\draw[dashed,Leaf] (category.south) -- (translated.north west);
+\draw[dashed,Leaf] (breed.south) -- (translated.north east);
+\node[font=\scriptsize,text=Muted] at (3.7,-4.05) {Proposition de modèle ; à détailler avant la migration Flyway S01};
+\end{tikzpicture}

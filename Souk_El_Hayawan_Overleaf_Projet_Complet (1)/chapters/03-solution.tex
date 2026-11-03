@@ -1,0 +1,103 @@
+\chapter{Analyse des besoins et solution proposée}
+\section{Vue d’ensemble}
+\textbf{Souk El Hayawan} vise un système de mise en relation en Tunisie, accessible sur téléphone et ordinateur, avec interface prévue en français, arabe tunisien (support RTL) et anglais. Les catégories couvrent dès la première version les animaux d’élevage \emph{et} les animaux de compagnie dont la publication ou la cession est autorisée.
+
+\begin{figure}[htbp]\centering
+\input{figures/global-services}
+\caption{Deux espaces métier clairement séparés --- proposition de conception}
+\label{fig:espaces}
+\end{figure}
+
+\section{Acteurs identifiés}
+\begin{table}[htbp]\centering\small
+\caption{Acteurs principaux et responsabilités}
+\begin{tabularx}{\textwidth}{@{}P{32mm}Y@{}}\toprule
+\textbf{Acteur} & \textbf{Fonctions attendues}\\\midrule
+Visiteur & Parcourir les annonces publiques, rechercher par type d’offre, animal, région et prix, consulter les avis d’entraide.\\
+Membre & Gérer son profil, enregistrer des favoris, échanger dans un canal privé, publier selon ses droits.\\
+Auteur d’annonce & Créer et gérer une annonce de vente, adoption gratuite ou don, joindre des photos, suivre son statut.\\
+Déclarant / trouveur & Publier une alerte PERDU, VOL PRÉSUMÉ ou TROUVÉ, dialoguer et clôturer après résolution.\\
+Modérateur & Vérifier les annonces et avis sensibles, traiter les signalements et documenter les décisions.\\
+Administrateur & Gérer les référentiels, les habilitations et la configuration métier.\\
+\bottomrule\end{tabularx}\end{table}
+
+\section{Périmètre fonctionnel validé}
+\subsection{Annonces d’animaux}
+Trois natures d’offres sont \tagstatus{VALIDÉES} :
+\begin{itemize}
+\item \textbf{Vente} : l’annonce porte un prix strictement positif, exprimé en TND.
+\item \textbf{Adoption gratuite} : recherche d’un nouveau foyer, sans paiement ni prix caché.
+\item \textbf{Don} : cession gratuite sans contrepartie financière ; le sens juridique et fonctionnel exact vis-à-vis de l’adoption doit figurer dans les conditions d’utilisation.
+\end{itemize}
+Une annonce possède un auteur, un type, une espèce, des caractéristiques pertinentes, une localisation approximative et un état. Le prix ne s’applique qu’à une vente. Les espèces protégées ou dont la commercialisation est interdite sont exclues.
+
+\subsection{Entraide pour animaux disparus et trouvés}
+\begin{itemize}
+\item \textbf{J’ai perdu un animal} : photo, description et zone approximative de disparition.
+\item \textbf{Vol présumé} : même parcours de recherche, sans désigner publiquement un suspect.
+\item \textbf{J’ai trouvé un animal} : avis de découverte, permettant au propriétaire potentiel de se manifester de manière confidentielle.
+\end{itemize}
+Ces avis sont \textbf{distincts des annonces de cession} : aucun prix, une modération avant diffusion, pas d’adresse précise publique, et une procédure prudente pour vérifier la propriété avant restitution.
+
+\subsection{Reproduction / saillie --- besoin à confirmer}
+Le projet étudie une mise en relation entre propriétaires recherchant un partenaire pour la reproduction de leur animal. Ce parcours, parfois désigné « tchatel », est \tagstatus{À CONFIRMER} avant intégration au MVP. Le sens du terme, les conditions sanitaires, l’âge, les règles par espèce et l’éventuelle rémunération ne sont pas arrêtés. Il ne doit pas être traité comme une vente de l’animal.
+
+\section{Exigences fonctionnelles}\label{sec:besoins}
+\begin{longtable}{@{}P{20mm}P{34mm}P{85mm}@{}}\caption{Exigences fonctionnelles majeures}\label{tab:besoins}\\
+\toprule\textbf{Code} & \textbf{Domaine} & \textbf{Besoin}\\\midrule\endfirsthead
+\toprule\textbf{Code} & \textbf{Domaine} & \textbf{Besoin}\\\midrule\endhead
+BF-01 & Catalogue & Consulter les espèces et races actives.\\
+BF-02 & Annonces & Rechercher et ouvrir une annonce de vente, adoption ou don.\\
+BF-03 & Recherche & Combiner espèce, race, type, gouvernorat, délégation et prix si applicable.\\
+BF-04 & Comptes & Créer un compte, se connecter et gérer son profil.\\
+BF-05 & Publication & Ajouter, modifier, publier, suspendre ou clôturer ses propres annonces.\\
+BF-06 & Communication & Contacter un autre membre dans un canal privé autorisé.\\
+BF-07 & Entraide & Signaler un animal perdu ou présumé volé.\\
+BF-08 & Entraide & Déclarer un animal trouvé et permettre une restitution prudente.\\
+BF-09 & Modération & Examiner les signalements et masquer les publications problématiques.\\
+BF-10 & Administration & Gérer le catalogue, les rôles et les données de référence.\\
+BF-11 & Langues & Présenter une interface FR / ar-TN / EN, avec RTL pour l’arabe.\\
+BF-12 & Évolution & Étudier une recherche de partenaire pour reproduction sous réserve de validation.\\
+\bottomrule
+\end{longtable}
+
+\section{Règles métier essentielles}\label{sec:regles}
+\begin{enumerate}[label=\textbf{RG-\arabic*.},leftmargin=12mm]
+\item Une race est associée à une catégorie d’animaux ; une délégation appartient à un gouvernorat.
+\item Une annonce de \textbf{vente} exige un prix positif, stocké en valeur décimale exacte (\texttt{BigDecimal / NUMERIC}).
+\item Une annonce d’\textbf{adoption gratuite} ou de \textbf{don} ne peut contenir ni prix de vente ni frais dissimulés.
+\item Une annonce \textbf{brouillon} ou \textbf{archivée} n’apparaît pas dans la recherche publique.
+\item Seul l’auteur autorisé peut modifier son annonce ; les fonctions de modération et d’administration ont des permissions distinctes.
+\item Les filtres sont combinables ; lorsque les deux bornes existent, le prix minimal ne peut excéder le maximal.
+\item Les avis PERDU / VOL PRÉSUMÉ / TROUVÉ sont modérés avant diffusion et ne divulguent ni documents sensibles ni localisation exacte.
+\item Un soupçon de vol n’est jamais assimilé à une preuve de culpabilité ; aucun suspect n’est désigné automatiquement.
+\item Une restitution est précédée d’une vérification raisonnable et confidentielle de l’appartenance.
+\item L’application refuse les catégories d’animaux dont les échanges sont légalement interdits.
+\end{enumerate}
+
+\section{Exigences non fonctionnelles}
+\begin{itemize}
+\item \textbf{Utilisabilité} : responsive mobile et desktop, formulaires compréhensibles, navigation cohérente.
+\item \textbf{Multilinguisme} : français, arabe tunisien et anglais ; direction RTL lorsque nécessaire.
+\item \textbf{Sécurité} : contrôle des autorisations côté backend, protection des données privées, stockage sûr des secrets.
+\item \textbf{Qualité} : API documentée, validation, tests, migrations de base de données versionnées.
+\item \textbf{Évolutivité} : monolithe modulaire et découpage métier clair, sans microservices prématurés.
+\end{itemize}
+
+\section{Architecture cible pour le démarrage}
+\begin{figure}[htbp]\centering
+\input{figures/architecture}
+\caption{Architecture logique envisagée : monolithe modulaire et API REST}
+\label{fig:architecture}
+\end{figure}
+L’interface sera réalisée avec \textbf{Angular} ; l’API et les règles métier avec \textbf{Spring Boot} ; les données persistées dans \textbf{PostgreSQL}, sous contrôle des migrations \textbf{Flyway} et de l’accès JPA/Hibernate. L’authentification pourra s’appuyer sur \textbf{Keycloak/OIDC}. Ces technologies décrivent la trajectoire de développement, pas un état déjà livré.
+
+\section{Cas d’utilisation global --- aperçu}
+\begin{figure}[htbp]\centering
+\input{figures/global-uc}
+\caption{Cas d’utilisation métier principaux de Souk El Hayawan}
+\label{fig:uc-global}
+\end{figure}
+\begin{warningbox}
+Les diagrammes sont des \textbf{modèles à valider}. Les relations UML détaillées, les scénarios d’exception et la traçabilité vers les exigences seront enrichis sprint par sprint, avec preuve de développement et tests à partir de la phase de réalisation.
+\end{warningbox}

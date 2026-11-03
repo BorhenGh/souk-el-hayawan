@@ -1,0 +1,24 @@
+\chapter{Perspectives et préparation de la réalisation}
+\section{Un dossier de conception par sprint}
+Après validation du backlog, chaque sprint doit recevoir les mêmes rubriques que les exemples S00 et S01 : fiche de sprint, use case général, fiches détaillées, séquences par cas, classes, activités, maquettes basse fidélité, règles et tests. Les diagrammes ne seront pas copiés à l’identique : seuls les acteurs, objets et interactions utiles au sprint concerné apparaîtront.
+
+\begin{notebox}
+\textbf{Principe de traçabilité :} \texttt{US-040} $\rightarrow$ \texttt{S05} $\rightarrow$ \texttt{UC-S05-01} $\rightarrow$ diagramme de séquence $\rightarrow$ classes/écran $\rightarrow$ tests et preuves d’acceptation.
+\end{notebox}
+
+\section{Points de cadrage restant ouverts}
+\begin{itemize}
+\item Sens et périmètre métier de la \textbf{reproduction/saillie} (« tchatel »), et éventuelle rémunération.
+\item Politique de \textbf{contact} : messagerie interne, WhatsApp ou combinaison encadrée.
+\item Délimitation opérationnelle entre \textbf{adoption gratuite} et \textbf{don}.
+\item Processus de \textbf{modération} initiale, pièces justificatives recevables et conservation des informations sensibles.
+\item Mise en œuvre du \textbf{multilinguisme}, notamment expressions tunisiennes et orientation RTL.
+\item Source et qualité du \textbf{référentiel géographique} tunisien.
+\item Conditions de prise en charge des \textbf{espèces dont la détention ou la cession est réglementée}.
+\end{itemize}
+
+\section{Trajectoire technique}
+\textbf{Étape 1 :} maîtriser le monolithe modulaire, les API REST, les migrations, l’authentification et les tests. \textbf{Étape 2 :} introduire uniquement les outils avancés justifiés par le besoin (Scheduler, Batch, géographie, matching). \textbf{Étape 3 :} étudier l’extraction de microservices après stabilisation des frontières métier et de la chaîne de tests.
+
+\section{Conclusion provisoire}
+Le projet dispose d’une vision, d’une étude comparative initiale, d’une solution proposée, d’un backlog structuré et d’une roadmap. Le présent dossier présente des \textbf{modèles de conception préliminaires}. Il sera complété de manière incrémentale à chaque sprint, en distinguant les choix validés des fonctionnalités réellement développées, testées et démontrées.

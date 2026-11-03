@@ -1,0 +1,19 @@
+\begin{tikzpicture}[x=1cm,y=1cm,font=\sffamily\small]
+\draw[LineGray,rounded corners=2mm] (1,-4.05) rectangle (11.4,1.15);
+\node[font=\bfseries,anchor=west,text=ForestDark] at (1.3,.78) {S01 --- Catalogue des animaux};
+\node[ellipse,draw=Forest,fill=Sage,minimum width=48mm,minimum height=9mm] (cat) at (6,-.45) {Consulter les catégories};
+\node[ellipse,draw=Forest,fill=Sage,minimum width=48mm,minimum height=9mm] (breed) at (6,-1.8) {Consulter les races};
+\node[ellipse,draw=Forest,fill=Sage,minimum width=48mm,minimum height=9mm] (lang) at (6,-3.1) {Afficher libellés traduits};
+\foreach \xx/\yy/\nom in {0/-1.0/Visiteur,12.3/-2.15/Admin}{
+ \draw[Forest,thick] (\xx,\yy+.3) circle (.15);
+ \draw[Forest,thick] (\xx,\yy+.15) -- (\xx,\yy-.28);
+ \draw[Forest,thick] (\xx-.24,\yy-.02) -- (\xx+.24,\yy-.02);
+ \draw[Forest,thick] (\xx,\yy-.28) -- (\xx-.21,\yy-.55);
+ \draw[Forest,thick] (\xx,\yy-.28) -- (\xx+.21,\yy-.55);
+ \node[anchor=north,font=\scriptsize] at (\xx,\yy-.64) {\nom};
+}
+\draw[Muted] (.3,-1.0) -- (cat.west);
+\draw[Muted] (.3,-1.0) -- (breed.west);
+\draw[Muted] (.3,-1.0) -- (lang.west);
+\node[text=Muted,font=\scriptsize,align=center] at (12.3,-3.35) {Administration\\effective en S04};
+\end{tikzpicture}

@@ -1,0 +1,23 @@
+\chapter*{Résumé}\addcontentsline{toc}{chapter}{Résumé}
+Ce rapport présente le cadrage et la conception progressive de \textbf{Souk El Hayawan}, une plateforme web destinée aux annonces d’animaux d’élevage et de compagnie en Tunisie. Le périmètre fonctionnel retenu comprend la \textbf{vente}, l’\textbf{adoption gratuite}, le \textbf{don}, ainsi qu’une rubrique distincte d’entraide pour les animaux \textbf{perdus, présumés volés ou trouvés}. La consultation s’appuie sur la catégorie, la race lorsqu’elle est pertinente, le prix pour les annonces tarifées et la localisation. Une mise en relation pour reproduction/saillie est envisagée, mais demeure \textbf{à confirmer}.
+
+L’étude compare des plateformes existantes et identifie un positionnement fondé sur la structuration des données et la cohérence des parcours. L’architecture envisagée associe \textbf{Angular}, \textbf{Spring Boot}, \textbf{PostgreSQL}, \textbf{JPA} et \textbf{Flyway}, dans un monolithe modulaire avant une éventuelle évolution vers les microservices. Le backlog global est décomposé en sprints ; la méthode de conception comporte, pour chaque sprint, des cas d’utilisation, des descriptions détaillées, des diagrammes UML et des maquettes basse fidélité. Les deux premiers sprints font ici l’objet d’une illustration concrète. Ce document est une \textit{version de conception} ; il ne constitue pas un bilan d’implémentation ou de tests réalisés.
+
+\noindent\textbf{Mots-clés :} marketplace, animaux, Tunisie, UML, Spring Boot, Angular, PostgreSQL, Scrum, PFE.
+
+\chapter*{Abstract}\addcontentsline{toc}{chapter}{Abstract}
+This report presents the initial analysis and incremental design of \textbf{Souk El Hayawan}, a Tunisian web marketplace for legally permitted livestock and companion-animal listings. The selected scope includes sales, free adoption, donations, and a separate moderated area for lost, allegedly stolen, and found animals. The proposed technical foundation uses Angular, Spring Boot, PostgreSQL, JPA, and Flyway in a modular monolith. The report structures product requirements into a backlog and planned sprints, supported by UML specifications and low-fidelity wireframes. The document describes \textit{planned work}, not a completed software implementation.
+
+\noindent\textbf{Keywords:} animal marketplace, UML, Scrum, requirements, Spring Boot, Angular.
+
+\chapter*{Note méthodologique}\addcontentsline{toc}{chapter}{Note méthodologique}
+\begin{notebox}
+\textbf{Conventions de lecture}\par
+\begin{itemize}
+\item \tagstatus{VALIDÉ} : décision fonctionnelle prise avec le porteur du projet.
+\item \tagstatus{À CONFIRMER} : option étudiée, non incluse dans le périmètre final sans validation.
+\item \tagstatus{PLANIFIÉ} : livrable d’un futur sprint, non réalisé à ce stade.
+\item Les schémas UML et maquettes de ce rapport sont des \textbf{propositions de conception}, et non des copies d’interfaces ou de code fonctionnels.
+\end{itemize}
+\end{notebox}
+Ce rapport prend pour base les documents de cadrage et de backlog du projet. Les informations sur les plateformes concurrentes sont issues d’une première revue de leurs pages publiques ; elles ne constituent ni une expertise de sécurité, ni une enquête de terrain exhaustive. La présentation s’inspire des usages académiques du PFE, sans reprendre le contenu du rapport Farm Ghar.

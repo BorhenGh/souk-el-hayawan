@@ -1,0 +1,84 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{styles/rapport}[2026/11/03 Charte PFE Souk El Hayawan]
+\RequirePackage{fontspec}
+\RequirePackage[french]{babel}
+\RequirePackage[a4paper,top=27mm,bottom=26mm,left=29mm,right=25mm,headheight=24pt]{geometry}
+\RequirePackage{microtype}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc,fit,backgrounds,shadows,shapes.multipart,decorations.pathreplacing}
+\RequirePackage{booktabs,longtable,tabularx,array,multirow}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{enumitem}
+\RequirePackage{titlesec}
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+\RequirePackage{float}
+\RequirePackage{caption}
+\RequirePackage{hyperref}
+\RequirePackage{xurl}
+\RequirePackage{pdflscape}
+\RequirePackage{etoolbox}
+\RequirePackage{setspace}
+\RequirePackage{needspace}
+\RequirePackage{amssymb}
+
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setsansfont{Lato}
+\setmonofont{Consolas}[Scale=.82]
+\definecolor{Forest}{HTML}{194A3C}
+\definecolor{ForestDark}{HTML}{10382E}
+\definecolor{Sage}{HTML}{E9F1ED}
+\definecolor{Leaf}{HTML}{50836B}
+\definecolor{Amber}{HTML}{DB9A4B}
+\definecolor{Ink}{HTML}{202E2B}
+\definecolor{Muted}{HTML}{63736D}
+\definecolor{LightGray}{HTML}{F5F7F6}
+\definecolor{LineGray}{HTML}{D8E1DC}
+\definecolor{Warm}{HTML}{FAF6EF}
+
+\hypersetup{unicode=true,colorlinks=true,linkcolor=ForestDark,urlcolor=Leaf,citecolor=ForestDark,pdftitle={Souk El Hayawan - Rapport PFE - Cadrage et conception},pdfauthor={Auteur à renseigner},pdfsubject={Rapport PFE - conception évolutive}}
+\urlstyle{same}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\linespread{1.11}
+\setlist[itemize]{leftmargin=6mm,topsep=3pt,itemsep=2pt,parsep=0pt,label=\textcolor{Forest}{\textbullet}}
+\setlist[enumerate]{leftmargin=6mm,topsep=3pt,itemsep=2pt,parsep=0pt}
+\captionsetup{labelfont={bf,sf},font=small,labelsep=period,justification=centering}
+\renewcommand{\arraystretch}{1.20}
+\setlength{\tabcolsep}{5pt}
+\titleformat{\chapter}[display]
+  {\sffamily\bfseries\color{ForestDark}}
+  {\fontsize{11}{13}\selectfont\MakeUppercase{Chapitre \thechapter}\hfill\textcolor{Amber}{\rule{20mm}{2pt}}}
+  {8pt}{\fontsize{24}{29}\selectfont}
+  [\vspace{5pt}\color{LineGray}\titlerule]
+\titlespacing*{\chapter}{0pt}{-12pt}{22pt}
+\titleformat{\section}{\Large\sffamily\bfseries\color{ForestDark}}{\thesection}{10pt}{}
+\titleformat{\subsection}{\large\sffamily\bfseries\color{Forest}}{\thesubsection}{8pt}{}
+\titleformat{\subsubsection}{\normalsize\sffamily\bfseries\color{ForestDark}}{\thesubsubsection}{8pt}{}
+\titlespacing*{\section}{0pt}{17pt}{8pt}
+\titlespacing*{\subsection}{0pt}{11pt}{5pt}
+\fancyhf{}
+\fancyhead[L]{\sffamily\footnotesize\textcolor{Forest}{SOUK EL HAYAWAN}}
+\fancyhead[R]{\sffamily\footnotesize\textcolor{Muted}{DOSSIER PFE | CONCEPTION}}
+\fancyfoot[L]{\sffamily\scriptsize\textcolor{Muted}{Version de travail --- novembre 2026}}
+\fancyfoot[R]{\sffamily\scriptsize\textcolor{Muted}{\thepage\ / \pageref*{LastPage}}}
+\renewcommand{\headrulewidth}{.35pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{LineGray}\leaders\hrule height \headrulewidth\hfill}}
+\pagestyle{fancy}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[R]{\sffamily\scriptsize\textcolor{Muted}{\thepage}}\renewcommand{\headrulewidth}{0pt}}
+\newtcolorbox{notebox}[1][]{enhanced,breakable,colback=Sage,colframe=LineGray,boxrule=.45pt,arc=2mm,left=3mm,right=3mm,top=2mm,bottom=2mm,borderline west={2pt}{0pt}{Forest},#1}
+\newtcolorbox{warningbox}[1][]{enhanced,breakable,colback=Warm,colframe=Amber!35!white,boxrule=.4pt,arc=2mm,left=3mm,right=3mm,top=2mm,bottom=2mm,borderline west={2pt}{0pt}{Amber},#1}
+\newcommand{\tagstatus}[1]{\tcbox[on line,boxsep=1pt,left=4pt,right=4pt,top=2pt,bottom=2pt,colback=Sage,colframe=Sage,arc=1.2mm]{\sffamily\scriptsize\bfseries\textcolor{ForestDark}{#1}}}
+\newcommand{\tabheader}[1]{\textcolor{white}{\sffamily\bfseries #1}}
+\newcommand{\legende}[1]{{\footnotesize\textcolor{Muted}{#1}}}
+\newcommand{\source}[1]{{\footnotesize\textsf{Source :} #1}}
+\newcommand{\key}[1]{{\sffamily\bfseries\color{ForestDark}#1}}
+\newcommand{\UCrow}[2]{\textbf{#1} & #2\\\hline}
+\newcommand{\sprintcell}[4]{\textbf{#1} & \textbf{#2} & #3 & #4\\\hline}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\appendixplaceholder}[1]{\begin{warningbox}\textbf{À compléter après réalisation :} #1. Aucune fonctionnalité non développée n’est présentée comme validée.\end{warningbox}}
+\endinput

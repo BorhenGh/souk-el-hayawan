@@ -1,0 +1,68 @@
+\babel@toc {french}{}\relax 
+\contentsline {chapter}{Résumé}{i}{chapter*.1}%
+\contentsline {chapter}{Abstract}{ii}{chapter*.2}%
+\contentsline {chapter}{Note méthodologique}{iii}{chapter*.3}%
+\contentsline {chapter}{\numberline {1}Introduction générale}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Contexte}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Problématique}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Objectifs}{1}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Démarche de travail}{2}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Organisation du rapport}{2}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Étude de l’existant}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Objectif et méthode}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Plateformes étudiées}{3}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Tayara --- annonces généralistes}{3}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Sawt El Falleh --- marché agricole}{3}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}TunisieVet --- annonces et orientation vétérinaire}{3}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Animalia --- animaux de compagnie}{4}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}Comparaison qualitative}{4}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Opportunité identifiée}{4}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Conclusion de l’étude}{4}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Analyse des besoins et solution proposée}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Vue d’ensemble}{5}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Acteurs identifiés}{5}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Périmètre fonctionnel validé}{6}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Annonces d’animaux}{6}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Entraide pour animaux disparus et trouvés}{6}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Reproduction / saillie --- besoin à confirmer}{6}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Exigences fonctionnelles}{6}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Règles métier essentielles}{7}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Exigences non fonctionnelles}{8}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Architecture cible pour le démarrage}{8}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Cas d’utilisation global --- aperçu}{8}{section.3.8}%
+\contentsline {chapter}{\numberline {4}Backlog produit global}{10}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Organisation et priorités}{10}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Règles de suivi du backlog}{12}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Organisation du développement en sprints}{13}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Méthode de découpage}{13}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Roadmap synthétique}{13}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Dépendances métier et techniques}{14}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Livrables de conception exigés pour chaque sprint}{14}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Définition de « terminé » (DoD)}{14}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Sprint S00 --- Initialisation du projet}{16}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Fiche de sprint}{16}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Diagramme de cas d’utilisation du sprint}{16}{section.6.2}%
+\contentsline {section}{\numberline {6.3}UC-S00-01 --- Consulter la page d’accueil}{17}{section.6.3}%
+\contentsline {section}{\numberline {6.4}UC-S00-02 --- Vérifier la disponibilité de l’API}{17}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Diagramme de classes de conception}{18}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Diagramme d’activité}{19}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Maquette de l’accueil --- style Balsamiq}{19}{section.6.7}%
+\contentsline {section}{\numberline {6.8}Travaux du développeur et validation}{20}{section.6.8}%
+\contentsline {chapter}{\numberline {7}Sprint S01 --- Référentiel des animaux}{21}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Fiche de sprint}{21}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Use cases du sprint}{21}{section.7.2}%
+\contentsline {section}{\numberline {7.3}UC-S01-01 --- Consulter les races d’une catégorie}{21}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Modèle de classes préliminaire}{23}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Diagramme d’activité}{23}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Maquette de catalogue --- style Balsamiq}{24}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Tests attendus}{24}{section.7.7}%
+\contentsline {chapter}{\numberline {8}Perspectives et préparation de la réalisation}{25}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Un dossier de conception par sprint}{25}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Points de cadrage restant ouverts}{25}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Trajectoire technique}{25}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Conclusion provisoire}{26}{section.8.4}%
+\contentsline {chapter}{\numberline {A}Modèle vierge de dossier de sprint}{27}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Fiche de sprint à remplir}{27}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Fiche détaillée de cas d’utilisation --- gabarit}{27}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Livrables graphiques à joindre}{27}{section.A.3}%
+\contentsline {chapter}{\numberline {B}Sources et ressources de référence}{29}{appendix.B}%

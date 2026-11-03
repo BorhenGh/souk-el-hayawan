@@ -1,0 +1,15 @@
+\begin{tikzpicture}[node distance=5mm and 8mm,font=\sffamily\scriptsize,>=Stealth]
+\tikzset{act/.style={draw=Forest,fill=Sage,rounded corners=2mm,minimum width=42mm,minimum height=8mm,align=center}}
+\node[circle,fill=ForestDark,minimum size=5mm,inner sep=0pt] (start) {};
+\node[act,below=of start] (open) {Ouvrir l’URL du site};
+\node[diamond,draw=Forest,fill=Warm,aspect=2,minimum width=31mm,minimum height=11mm,align=center,below=6mm of open] (ok) {Application accessible ?};
+\node[act,below=8mm of ok] (view) {Afficher l’accueil};
+\node[act,right=15mm of ok] (err) {Afficher un état d’erreur};
+\node[draw=ForestDark,circle,double,double distance=1pt,minimum size=5mm,inner sep=0pt,below=of view] (end) {};
+\draw[->,Forest] (start)--(open);
+\draw[->,Forest] (open)--(ok);
+\draw[->,Forest] (ok)--node[right]{Oui}(view);
+\draw[->,Forest] (ok)--node[above]{Non}(err);
+\draw[->,Forest] (view)--(end);
+\draw[->,Muted] (err.south) |- (end.east);
+\end{tikzpicture}

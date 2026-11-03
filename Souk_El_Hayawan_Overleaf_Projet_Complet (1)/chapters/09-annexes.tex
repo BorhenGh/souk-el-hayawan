@@ -1,0 +1,54 @@
+\chapter{Modèle vierge de dossier de sprint}
+\begin{notebox}
+\textbf{Mode d’emploi :} copier ce modèle dans un nouveau fichier \texttt{chapters/sprintXX.tex}, compléter les sections et produire les figures TikZ associées dans \texttt{figures/}. Les exemples S00 et S01 montrent la mise en page attendue.
+\end{notebox}
+\section{Fiche de sprint à remplir}
+\begin{table}[htbp]\centering\small
+\caption{Gabarit de fiche de sprint}
+\begin{tabularx}{\textwidth}{@{}P{40mm}Y@{}}\toprule\textbf{Champ} & \textbf{À renseigner}\\\midrule
+Sprint / version & Code, période et statut.\\
+Objectif & Résultat utilisateur observable.\\
+Stories incluses & Identifiants stables depuis le backlog.\\
+Cas d’utilisation & UC-SXX-01, UC-SXX-02, etc.\\
+Architecture & Classes, API, écrans et relations nécessaires.\\
+Livrables & Code, maquettes, diagrammes, documentation.\\
+Tests & Scénario nominal, erreurs, permissions, régressions.\\
+Critère d’acceptation & Conditions démontrables, sans données fictives.\\
+\bottomrule\end{tabularx}\end{table}
+
+\section{Fiche détaillée de cas d’utilisation --- gabarit}
+\begin{table}[htbp]\centering\small
+\caption{Trame standard des cas d’utilisation}
+\begin{tabularx}{\textwidth}{@{}P{36mm}Y@{}}\toprule\textbf{Champ} & \textbf{Description à compléter}\\\midrule
+Code / intitulé & UC-SXX-YY : verbe et objet métier.\\
+Acteur & Acteur principal et acteurs secondaires.\\
+But & Valeur recherchée.\\
+Préconditions & État requis avant exécution.\\
+Déclencheur & Action initiatrice.\\
+Scénario nominal & Séquence numérotée : actions acteur / réponses système.\\
+Alternatives & Parcours valides de remplacement.\\
+Exceptions & Erreurs, permissions et indisponibilités.\\
+Postconditions & Effet sur l’état système.\\
+Règles métier & Identifiants RG-XX et validations.\\
+Critères de recette & Tests vérifiables, succès / échec.\\
+\bottomrule\end{tabularx}\end{table}
+
+\section{Livrables graphiques à joindre}
+\begin{enumerate}
+\item \textbf{Use case du sprint} : acteurs et fonctionnalités de l’incrément.
+\item \textbf{Séquence de chaque cas détaillé important} : messages et réponses des composants.
+\item \textbf{Diagramme de classes} : attributs, associations, multiplicités.
+\item \textbf{Diagramme d’activité} : étapes, conditions et parcours d’erreur.
+\item \textbf{Maquettes} : page d’accueil, liste, détail, formulaires, back-office ou autres écrans pertinents.
+\end{enumerate}
+\chapter{Sources et ressources de référence}
+\begin{enumerate}
+\item Documents de cadrage et backlog de \textbf{Souk El Hayawan} conservés dans Google Drive (documents de travail).
+\item Tayara : \url{https://www.tayara.tn/}.
+\item Sawt El Falleh : \url{https://www.sawtelfalleh.tn/}.
+\item TunisieVet : \url{https://tunisievet.com/fr/vente-animaux}.
+\item Animalia : \url{https://www.animalia.tn/}.
+\item \textit{Farm Ghar}, rapport PFE fourni par l’utilisateur : référence de structure, non recopiée et non présentée comme source d’observations en Tunisie.
+\item \textit{UML Specification}, Object Management Group : documentation de référence pour les diagrammes de conception.
+\item Documentation officielle Spring Boot, Angular, PostgreSQL, Flyway et Keycloak : à citer avec versions validées lors de l’implémentation.
+\end{enumerate}
