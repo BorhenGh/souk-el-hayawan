@@ -1,1 +1,244 @@
-/* You can add global styles to this file, and also import other style files */
+/* =====================================
+   STYLES GLOBAUX — palette, reset, boutons partagés
+   ===================================== */
+
+:root {
+  --green-900: #182a12;
+  --green-800: #2f4a1f;
+  --green-700: #385322;
+  --green-600: #496b2c;
+  --lime-200: #d8edab;
+  --cream-50: #fffdf2;
+  --cream-100: #fff8ea;
+  --sand-200: #f5e7ad;
+  --ink: #23301b;
+}
+
+/* =========================================
+   SYSTÈME DE THÈMES (clair / sombre)
+   Doit rester dans ce fichier global : dans le SCSS d'un composant,
+   Angular ajoute [_ngcontent-xxx] aux sélecteurs et :root / body ne matchent plus.
+   Le bouton du header pose data-theme="dark" ou "light" sur <html>.
+   ========================================= */
+
+/* THÈME CLAIR */
+:root,
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --app-bg: #fff8ea;
+  --app-surface: #ffffff;
+  --app-surface-alt: #f7eedb;
+
+  --app-text: #23301b;
+  --app-text-muted: #686354;
+
+  --app-primary: #496b2c;
+  --app-primary-hover: #365321;
+
+  --app-border: #e2e8d8;
+  --app-shadow: rgba(35, 48, 27, 0.1);
+  --app-glow: rgba(216, 237, 171, 0.55);
+  --app-deco-opacity: 0.6;
+}
+
+/* THÈME SOMBRE */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --app-bg: #151d15;
+  --app-surface: #202c20;
+  --app-surface-alt: #1b271b;
+
+  --app-text: #f4f5ec;
+  --app-text-muted: #b6c4ae;
+
+  --app-primary: #9dc978;
+  --app-primary-hover: #b6de92;
+
+  --app-border: #354835;
+  --app-shadow: rgba(0, 0, 0, 0.3);
+  --app-glow: rgba(157, 201, 120, 0.12);
+  --app-deco-opacity: 0.12;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  -webkit-font-smoothing: antialiased;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* UTILITAIRES */
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  @media (max-width: 560px) {
+    padding: 0 16px;
+  }
+}
+
+// Texte lu par les lecteurs d'écran mais invisible à l'écran
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Icônes SVG au trait (viewBox 24x24)
+.icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* SECTIONS DE PAGE */
+.section {
+  padding: 88px 0;
+
+  @media (max-width: 560px) {
+    padding: 64px 0;
+  }
+}
+
+.section--alt {
+  background: var(--app-surface-alt);
+}
+
+.section-head {
+  max-width: 620px;
+  margin: 0 auto 48px;
+  text-align: center;
+
+  h2 {
+    margin: 12px 0;
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--app-text);
+  }
+
+  p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--app-text-muted);
+  }
+}
+
+.section-eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--app-primary);
+}
+
+// Pas d'animations pour les personnes qui les ont désactivées dans leur système
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* BOUTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 20px;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    background-color 0.2s,
+    box-shadow 0.2s;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--lime-200);
+    outline-offset: 2px;
+  }
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--cream-50), var(--sand-200));
+  border: 1px solid #fff1c8;
+  color: var(--green-700);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+
+  &:not(:disabled):hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+
+  &:not(:disabled):hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Variantes pour fond clair */
+.btn-green {
+  background: var(--green-600);
+  border: 1px solid var(--green-600);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(73, 107, 44, 0.25);
+
+  &:not(:disabled):hover {
+    background: var(--green-700);
+    transform: translateY(-1px);
+  }
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--app-primary) 35%, transparent);
+  color: var(--app-primary);
+
+  &:not(:disabled):hover {
+    background: rgba(73, 107, 44, 0.08);
+  }
+}
+
+.btn-green:focus-visible,
+.btn-outline:focus-visible {
+  outline-color: var(--green-600);
+}

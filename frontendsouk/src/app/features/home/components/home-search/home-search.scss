@@ -1,0 +1,153 @@
+:host {
+  display: block;
+}
+
+.hero-search {
+  width: 100%;
+  margin-top: 35px;
+  padding: 24px;
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: 24px;
+  box-shadow: 0 12px 35px rgba(46, 75, 30, 0.06);
+  backdrop-filter: blur(12px);
+}
+
+/* TITRE */
+.search-heading {
+  margin-bottom: 20px;
+
+  span {
+    display: block;
+    color: var(--app-primary);
+    font-size: 15px;
+    font-weight: 800;
+  }
+
+  p {
+    margin: 5px 0 0;
+    color: var(--app-text-muted);
+    font-size: 12px;
+  }
+}
+
+/* GRILLE DES CHAMPS */
+.search-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* CHAMP */
+.search-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+
+  label {
+    color: var(--app-text);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  input,
+  select {
+    width: 100%;
+    min-width: 0;
+    height: 48px;
+    padding: 0 14px;
+    border: 1px solid var(--app-border);
+    border-radius: 12px;
+    background: var(--app-bg);
+    color: var(--app-text);
+    font-family: inherit;
+    font-size: 12px;
+    outline: none;
+    transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+
+    &:focus-visible {
+      border-color: var(--app-primary);
+      box-shadow: 0 0 0 3px rgba(73, 107, 44, 0.12);
+    }
+
+    &::placeholder {
+      color: #9a998c;
+    }
+
+    &:disabled {
+      opacity: 1;
+      cursor: not-allowed;
+      color: var(--app-text-muted);
+    }
+  }
+}
+
+/* BOUTON RECHERCHER */
+.search-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 48px;
+  align-self: end;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #547a32, #385922);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(73, 107, 44, 0.18);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  span {
+    font-size: 19px;
+    line-height: 1;
+    transition: transform 0.25s ease;
+  }
+
+  &:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 23px rgba(73, 107, 44, 0.28);
+
+    span {
+      transform: translateX(4px);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.85;
+    cursor: not-allowed;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 560px) {
+  .hero-search {
+    margin-top: 28px;
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .search-fields {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .search-field {
+    input,
+    select {
+      height: 46px;
+    }
+  }
+
+  .search-button {
+    width: 100%;
+  }
+}

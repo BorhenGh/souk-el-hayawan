@@ -1,0 +1,320 @@
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* HEADER PRINCIPAL */
+.site-header {
+  position: relative;
+  background: var(--green-600);
+  color: #ffffff;
+  box-shadow: 0 2px 16px rgba(24, 42, 18, 0.18);
+}
+
+.header-container {
+  max-width: 1360px;
+  height: 72px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+/* LOGO */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--cream-100);
+  color: var(--green-600);
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+
+  strong {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+
+  small {
+    font-size: 12px;
+    color: var(--lime-200);
+  }
+}
+
+/* MENU */
+.header-menu {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 auto;
+}
+
+.nav-link {
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+a.nav-link:hover,
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+.nav-link.active {
+  box-shadow: inset 0 -2px 0 var(--lime-200);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* BOUTON BURGER */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  margin-left: auto;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
+  background: transparent;
+  cursor: pointer;
+
+  span {
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background: #ffffff;
+    transition:
+      transform 0.25s,
+      opacity 0.25s;
+  }
+
+  &[aria-expanded='true'] {
+    span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1380px) {
+  .header-container {
+    gap: 20px;
+  }
+
+  .header-menu {
+    gap: 16px;
+  }
+
+  .nav-link {
+    padding: 8px 10px;
+  }
+
+  .brand-text small {
+    display: none;
+  }
+}
+
+@media (max-width: 1270px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .brand-text small {
+    display: block;
+  }
+
+  .header-preferences {
+    align-self: center;
+  }
+
+  .header-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 12px 24px 24px;
+    background: var(--green-600);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 16px 24px rgba(24, 42, 18, 0.25);
+
+    &.open {
+      display: flex;
+    }
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0;
+  }
+
+  .nav-link {
+    padding: 12px 14px;
+    border-radius: 12px;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    align-items: stretch;
+
+    .btn {
+      height: 46px;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .header-container {
+    padding: 0 16px;
+  }
+
+  .brand-text small {
+    display: none;
+  }
+}
+
+/* =========================================
+   PRÉFÉRENCES : LANGUE ET THÈME
+   Une seule pilule : [ globe FR ▾ | lune ]
+   ========================================= */
+
+.header-preferences {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 42px;
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.language-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  // Séparateur vertical entre langue et thème
+  padding-right: 4px;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+
+  .icon {
+    position: absolute;
+    left: 10px;
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+  }
+}
+
+.language-select,
+.theme-toggle {
+  height: 34px;
+  border: 0;
+  border-radius: 999px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.14);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--sand-200);
+    outline-offset: 2px;
+  }
+}
+
+.language-select {
+  appearance: none;
+  padding: 0 28px 0 32px;
+  // Chevron blanc (la flèche native disparaît avec appearance: none)
+  background: transparent
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")
+    no-repeat right 10px center / 12px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+
+  option {
+    background: var(--cream-100);
+    color: var(--ink);
+  }
+}
+
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  padding: 0;
+  background: transparent;
+
+  .icon {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s;
+  }
+
+  &:hover .icon {
+    transform: rotate(-20deg);
+  }
+}

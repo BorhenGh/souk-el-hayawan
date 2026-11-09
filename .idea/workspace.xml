@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d56afc17-fd8e-45cc-9b78-c513e5a7c585" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/backendsouk/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backendsouk/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backendsouk/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backendsouk/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendsouk/src/app/features/home/pages/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontendsouk/src/app/features/home/pages/home/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendsouk/src/app/features/home/pages/home/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontendsouk/src/app/features/home/pages/home/home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendsouk/src/app/features/home/pages/home/home.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontendsouk/src/app/features/home/pages/home/home.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendsouk/src/app/layouts/public-layout/public-layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontendsouk/src/app/layouts/public-layout/public-layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendsouk/src/app/layouts/public-layout/public-layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontendsouk/src/app/layouts/public-layout/public-layout.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendsouk/src/app/layouts/public-layout/public-layout.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontendsouk/src/app/layouts/public-layout/public-layout.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendsouk/src/app/layouts/public-layout/public-layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontendsouk/src/app/layouts/public-layout/public-layout.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendsouk/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontendsouk/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendsouk/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontendsouk/src/styles.scss" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="3LrOnZQ8epGCwXJbyqR4XZeyd48" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.28539.33" />
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-IU-252.28539.33" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d56afc17-fd8e-45cc-9b78-c513e5a7c585" name="Changes" comment="" />
+      <created>1794208893576</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1794208893576</updated>
+      <workItem from="1794208894985" duration="17000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

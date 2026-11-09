@@ -1,0 +1,10 @@
+/* Le footer reste collé en bas même quand la page est courte */
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.public-layout {
+  flex: 1;
+}

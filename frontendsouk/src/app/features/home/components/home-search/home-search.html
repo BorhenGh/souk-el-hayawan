@@ -1,0 +1,45 @@
+<!-- RECHERCHE RAPIDE -->
+<div class="hero-search">
+  <div class="search-heading">
+    <span>Recherche rapide</span>
+    <p>Trouvez un animal près de chez vous</p>
+  </div>
+
+  <div class="search-fields">
+    <!-- Nom de l'animal -->
+    <div class="search-field">
+      <label for="animal-search">Quel animal ?</label>
+      <input
+        id="animal-search"
+        type="search"
+        placeholder="Ex : Mouton, chat, cheval..."
+        disabled
+      />
+    </div>
+
+    <!-- Catégorie -->
+    <div class="search-field">
+      <label for="animal-category">Catégorie</label>
+      <select id="animal-category" disabled>
+        <option value="">Toutes les catégories</option>
+        <option value="pets">Animaux de compagnie</option>
+        <option value="livestock">Animaux d'élevage</option>
+        <option value="poultry">Volailles</option>
+      </select>
+    </div>
+
+    <!-- Localisation -->
+    <div class="search-field">
+      <label for="animal-location">Gouvernorat</label>
+      <select id="animal-location" disabled>
+        <option value="">Toute la Tunisie</option>
+      </select>
+    </div>
+
+    <!-- Action -->
+    <button class="search-button" type="button" disabled>
+      Rechercher
+      <span aria-hidden="true">→</span>
+    </button>
+  </div>
+</div>

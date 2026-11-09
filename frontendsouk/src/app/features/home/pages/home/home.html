@@ -1,12 +1,106 @@
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <span class="hero-badge">Marketplace 100% tunisienne</span>
 
-<section class="home">
-  <h1>Bienvenue sur Souk El Hayawan</h1>
+<h1>
+  Tous les animaux,
+  <span>toutes les possibilités.</span>
+</h1>
+      <p class="hero-text">
+      Achetez, adoptez ou donnez des animaux partout
+  en Tunisie. Retrouvez aussi les annonces
+  d'animaux perdus, volés ou trouvés.
+      </p>
 
-  <p>
-    Plateforme tunisienne dédiée aux animaux.
-  </p>
+      <div class="hero-actions">
+        <button class="btn btn-green" type="button" disabled>
+          Voir les annonces
+          <span aria-hidden="true">→</span>
+        </button>
+        <button class="btn btn-outline" type="button" disabled>Publier une annonce</button>
+      </div>
 
-  <p>
-    Vente | Adoption gratuite | Don
-  </p>
+      <app-home-search />
+
+      <ul class="hero-stats">
+        <li><strong>4</strong> univers</li>
+        <li><strong>24</strong> gouvernorats</li>
+        <li><strong>0 DT</strong> pour adopter</li>
+      </ul>
+    </div>
+
+    <div class="hero-visual">
+      <img
+        src="/images/home-hero.webp"
+        alt="Animaux de compagnie et d'élevage"
+        fetchpriority="high"
+      />
+
+      <div class="floating-card floating-card--top">
+        <span class="floating-icon tone-clay" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><path [attr.d]="categories[1].icon" /></svg>
+        </span>
+        <span>
+          <strong>Adoption gratuite</strong>
+          <small>Donnez-leur une seconde chance</small>
+        </span>
+      </div>
+
+      <div class="floating-card floating-card--bottom">
+        <span class="floating-icon tone-sky" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><path [attr.d]="categories[3].icon" /></svg>
+        </span>
+        <span>
+          <strong>Perdu ou trouvé ?</strong>
+          <small>Signalez-le à la communauté</small>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIVERS -->
+<section class="section section--alt">
+  <div class="container">
+    <header class="section-head">
+      <span class="section-eyebrow">Nos univers</span>
+      <h2>Que souhaitez-vous faire ?</h2>
+      <p>Une seule plateforme pour tous les besoins autour des animaux, partout en Tunisie.</p>
+    </header>
+
+    <div class="category-grid">
+      @for (category of categories; track category.title) {
+        <article class="category-card">
+          <span class="category-icon" [class]="'tone-' + category.tone" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24"><path [attr.d]="category.icon" /></svg>
+          </span>
+          <h3>{{ category.title }}</h3>
+          <p>{{ category.description }}</p>
+          <span class="category-soon">Bientôt disponible</span>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- COMMENT ÇA MARCHE -->
+<section class="section">
+  <div class="container">
+    <header class="section-head">
+      <span class="section-eyebrow">Simple et rapide</span>
+      <h2>Comment ça marche ?</h2>
+    </header>
+
+    <ol class="steps">
+      @for (step of steps; track step.title; let i = $index) {
+        <li class="step">
+          <span class="step-number">{{ i + 1 }}</span>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </li>
+      }
+    </ol>
+  </div>
 </section>

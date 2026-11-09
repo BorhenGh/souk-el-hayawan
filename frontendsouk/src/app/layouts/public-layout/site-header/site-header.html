@@ -1,0 +1,101 @@
+<header class="site-header">
+  <div class="header-container">
+    <!-- Logo -->
+    <a routerLink="/" class="brand" (click)="closeMenu()">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="currentColor">
+          <ellipse cx="11" cy="15" rx="4" ry="6" transform="rotate(-22 11 15)" />
+          <ellipse cx="22" cy="10" rx="4" ry="6" />
+          <ellipse cx="34" cy="14" rx="4" ry="6" transform="rotate(20 34 14)" />
+          <ellipse cx="41" cy="24" rx="3" ry="5" transform="rotate(25 41 24)" />
+          <path
+            d="M24 22c-5 0-7 6-11 10-4 5 0 11 6 10 4-1 7-1 10 0 6 1 10-5 6-10-4-4-6-10-11-10z"
+          />
+        </svg>
+      </span>
+
+      <span class="brand-text">
+        <strong>Souk El Hayawan</strong>
+        <small>Le monde des animaux en Tunisie</small>
+      </span>
+    </a>
+
+    <!-- Bouton menu (mobile) -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-controls="site-menu"
+      [attr.aria-expanded]="menuOpen()"
+      [attr.aria-label]="menuOpen() ? 'Fermer le menu' : 'Ouvrir le menu'"
+      (click)="toggleMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="header-menu" id="site-menu" [class.open]="menuOpen()">
+      <!-- Navigation -->
+      <nav class="nav-menu" aria-label="Navigation principale">
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="nav-link"
+          (click)="closeMenu()"
+        >
+          Accueil
+        </a>
+        <span class="nav-link">Annonces</span>
+        <span class="nav-link">Adoption & Dons</span>
+        <span class="nav-link">Perdus & Trouvés</span>
+        <span class="nav-link">À propos</span>
+      </nav>
+
+      <!-- Actions -->
+      <div class="header-actions">
+        <!-- Préférences du site -->
+        <div class="header-preferences">
+          <!-- Sélecteur de langue -->
+          <div class="language-control">
+            <label for="site-language" class="sr-only">Choisir la langue</label>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <path
+                d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+              />
+            </svg>
+            <select id="site-language" class="language-select" aria-label="Langue du site">
+              <option value="fr">FR</option>
+              <option value="tn">تونسي</option>
+              <option value="en">EN</option>
+            </select>
+          </div>
+
+          <!-- Bouton thème clair / sombre -->
+          
+<button
+  type="button"
+  class="theme-toggle"
+  (click)="toggleTheme()"
+  [attr.aria-label]="isDark()
+    ? 'Activer le mode clair'
+    : 'Activer le mode sombre'"
+  [attr.aria-pressed]="isDark()"
+>
+  <span aria-hidden="true">
+    {{ isDark() ? '☀' : '☾' }}
+  </span>
+</button>
+
+        </div>
+
+        <button class="btn btn-ghost" type="button" disabled>Connexion</button>
+        <button class="btn btn-primary" type="button" disabled>
+          Publier une annonce
+          <span aria-hidden="true">↗</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
